@@ -3,7 +3,32 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/style.css" />
         <title>Fotogram</title>
+        <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon" />
     </head>
-    <body></body>
+    <body onload="render()">
+        <header>
+            <img id="logo" src="./img/Fotogram_Logo.svg" />
+        </header>
+        <div onclick="toggleOverlay()" id="overlay" class="overlay"></div>
+        <div id="dialog"></div>
+        <main>
+            <h1>Your personal Photo Album</h1>
+            <div id="content"></div>
+        </main>
+
+        <footer>
+            <img src="img/header_logo_devakademie.svg" alt="" />
+            <span>&copy; 2025 Developer Akademie Gmbh</span>
+        </footer>
+        <script src="script.js"></script>
+    </body>
 </html>

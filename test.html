@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fotoalbum</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+            .gallery img {
+                width: 150px;
+                height: 100px;
+                object-fit: cover;
+                cursor: pointer;
+                border-radius: 8px;
+                transition: transform 0.3s;
+            }
+            .gallery img:hover {
+                transform: scale(1.1);
+            }
+            .lightbox {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                align-items: center;
+                justify-content: center;
+            }
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+            }
+            .lightbox.active {
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Mein Fotoalbum</h1>
+        <div class="gallery" id="gallery"></div>
+
+        <div class="lightbox" id="lightbox">
+            <img src="" alt="Vergrößertes Bild" id="lightbox-img" />
+        </div>
+
+        <script>
+            const images = [
+                "bild1.jpg",
+                "bild2.jpg",
+                "bild3.jpg",
+                "bild4.jpg",
+                "bild5.jpg",
+            ];
+
+            const gallery = document.getElementById("gallery");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+
+            images.forEach((src) => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "Foto";
+                img.addEventListener("click", () => {
+                    lightbox.classList.add("active");
+                    lightboxImg.src = src;
+                });
+                gallery.appendChild(img);
+            });
+
+            lightbox.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+            });
+        </script>
+    </body>
+</html>
